@@ -15,8 +15,17 @@ export default function Task({ task: { id, title, state }, onArchiveTask, onPinT
       </label>
 
       <label htmlFor={`title-${id}`} aria-label={title} className="title">
-        <input type="text" value={title} readOnly={true} name="title" id={`title-${id}`} placeholder="Input title" />
+        <input
+          type="text"
+          value={title}
+          readOnly={true}
+          name="title"
+          id={`title-${id}`}
+          placeholder="Input title"
+          style={{ backgroundColor: "red" }}
+        />
       </label>
+
       {state !== "TASK_ARCHIVED" && (
         <button
           className="pin-button"
@@ -31,7 +40,6 @@ export default function Task({ task: { id, title, state }, onArchiveTask, onPinT
     </div>
   );
 }
-
 Task.propTypes = {
   /** Composition of the task */
   task: PropTypes.shape({
